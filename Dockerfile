@@ -22,9 +22,9 @@ RUN mkdir -p /opt/toolchains && \
     rm xtensa-esp32-elf-gcc8_4_0-esp-2021r2-patch5-linux-amd64.tar.gz
 
 # Environment variables for Zephyr + ESP32
-ENV ZEPHYR_TOOLCHAIN_VARIANT=xtensa
-ENV XTENSA_TOOLCHAIN_PATH=/opt/toolchains/xtensa-esp32-elf
-ENV PATH="${XTENSA_TOOLCHAIN_PATH}/bin:${PATH}"
+ENV ZEPHYR_TOOLCHAIN_VARIANT=espressif
+ENV ESPRESSIF_TOOLCHAIN_PATH=/opt/toolchains/xtensa-esp32-elf
+ENV PATH="${ESPRESSIF_TOOLCHAIN_PATH}/bin:${PATH}"
 
 # Default workspace
 WORKDIR /work
