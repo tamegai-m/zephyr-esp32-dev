@@ -29,9 +29,9 @@ jobs:
       - name: Run build inside Docker
         run: |
             docker run --rm -v ${{ github.workspace }}/sample:/work -w /work zephyr-esp32-dev:test \
-              bash -c "\
-                pip3 install -r zephyr/scripts/requirements.txt && \
+              bash -c "\           
                 west init -l . && \
                 west update && \
+                pip3 install -r zephyr/scripts/requirements.txt && \
                 west build -b esp32"
   
