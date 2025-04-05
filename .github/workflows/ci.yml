@@ -28,16 +28,16 @@ jobs:
         
       - name: Run build inside Docker
         run: |
-            docker run --rm -v ${{ github.workspace }}:/work -w /work zephyr-esp32-dev:test \
-              bash -c "\
-                mkdir workspace && cd workspace && \
-                west init && \
-                west update && \
-                west blobs fetch hal_espressif && \
-                west zephyr-export && \
-                pip3 install -r zephyr/scripts/requirements.txt && \
-                west build -b m5stack_atom_lite/esp32/procpu ../target \
-                  -- -DCONFIG_BOOTLOADER_ESP_IDF=y -DCONFIG_ESP32_USE_UNSUPPORTED_REVISION=y"
+          docker run --rm -v ${{ github.workspace }}:/work -w /work zephyr-esp32-dev:test \
+            bash -c "\
+              cd workspace && \
+              west init && \
+              west update && \
+              west blobs fetch hal_espressif && \
+              west zephyr-export && \
+              pip3 install -r zephyr/scripts/requirements.txt && \
+              west build -b m5stack_atom_lite/esp32/procpu ../target \
+                -- -DCONFIG_BOOTLOADER_ESP_IDF=y -DCONFIG_ESP32_USE_UNSUPPORTED_REVISION=y"
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
