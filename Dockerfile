@@ -11,9 +11,8 @@ RUN apt-get update && apt-get install -y \
     make gcc g++ unzip curl udev \
  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Install west (Zephyr meta-tool)
-RUN pip3 install west
-RUN pip3 install requests
+# Install west (Zephyr meta-tool) and requests
+RUN pip3 install west requests
 
 # Install ESP32 toolchain (Xtensa)
 RUN mkdir -p /opt/toolchains && \
