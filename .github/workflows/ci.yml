@@ -36,5 +36,5 @@ jobs:
                 west update && \
                 west zephyr-export && \
                 pip3 install -r zephyr/scripts/requirements.txt && \
-                west build -b esp32 ../target"
+                west build -b m5stack_atom_lite ../target"
         
