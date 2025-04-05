@@ -17,9 +17,9 @@ RUN pip3 install west
 # Install ESP32 toolchain (Xtensa)
 RUN mkdir -p /opt/toolchains && \
     cd /opt/toolchains && \
-    wget https://github.com/espressif/crosstool-NG/releases/download/esp-2021r2-patch5/xtensa-esp32-elf-gcc8_4_0-esp-2021r2-patch5-linux-amd64.tar.xz && \
-    tar -xvf xtensa-esp32-elf-gcc8_4_0-esp-2021r2-patch5-linux-amd64.tar.xz && \
-    rm xtensa-esp32-elf-gcc8_4_0-esp-2021r2-patch5-linux-amd64.tar.xz
+    wget https://dl.espressif.com/dl/xtensa-esp32-elf-gcc8_4_0-esp-2021r2-patch5-linux-amd64.tar.gz && \
+    tar -xvzf xtensa-esp32-elf-gcc8_4_0-esp-2021r2-patch5-linux-amd64.tar.gz && \
+    rm xtensa-esp32-elf-gcc8_4_0-esp-2021r2-patch5-linux-amd64.tar.gz
 
 # Environment variables for Zephyr + ESP32
 ENV ZEPHYR_TOOLCHAIN_VARIANT=xtensa
