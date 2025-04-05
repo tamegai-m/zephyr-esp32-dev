@@ -36,5 +36,6 @@ jobs:
                 west blobs fetch hal_espressif && \
                 west zephyr-export && \
                 pip3 install -r zephyr/scripts/requirements.txt && \
-                west build -b m5stack_atom_lite/esp32/procpu ../target"
+                west build -b m5stack_atom_lite/esp32/procpu ../target \
+                  -- -DCONFIG_BOOTLOADER_ESP_IDF=y -DCONFIG_ESP32_USE_UNSUPPORTED_REVISION=y"
         
