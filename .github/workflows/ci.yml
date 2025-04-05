@@ -24,14 +24,14 @@ jobs:
           load: true  # load to local Docker so we can run it below
 
       - name: Clone sample project (zephyr-atom-wifi-sample)
-        run: |
-          git clone https://github.com/tamegai-m/zephyr-atom-wifi-sample sample
-          cd sample
-          west init -l .
-          west update
-          pip3 install -r zephyr/scripts/requirements.txt
-
+        run: git clone https://github.com/tamegai-m/zephyr-atom-wifi-sample sample
+  
       - name: Run build inside Docker
         run: |
-          docker run --rm -v ${{ github.workspace }}/sample:/work -w /work zephyr-esp32-dev:test \
-              bash -c "west init -l . && west update && pip3 install -r zephyr/scripts/requirements.txt && west build -b esp32"
+            docker run --rm -v ${{ github.workspace }}/sample:/work -w /work zephyr-esp32-dev:test \
+              bash -c "\
+                pip3 install -r zephyr/scripts/requirements.txt && \
+                west init -l . && \
+                west update && \
+                west build -b esp32"
+  
