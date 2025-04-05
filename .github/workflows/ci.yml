@@ -33,6 +33,7 @@ jobs:
                 mkdir workspace && cd workspace && \
                 west init && \
                 west update && \
+                west blobs fetch hal_espressif && \
                 west zephyr-export && \
                 pip3 install -r zephyr/scripts/requirements.txt && \
                 west build -b m5stack_atom_lite/esp32/procpu ../target"
