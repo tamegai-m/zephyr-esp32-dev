@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install west (Zephyr meta-tool)
 RUN pip3 install west
+RUN pip3 install requests
 
 # Install ESP32 toolchain (Xtensa)
 RUN mkdir -p /opt/toolchains && \
