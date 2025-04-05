@@ -32,9 +32,8 @@ jobs:
               bash -c "\
                 mkdir workspace && cd workspace && \
                 west init && \
-                west config manifest.group-filter +esp32 && \
                 west update && \
                 west zephyr-export && \
                 pip3 install -r zephyr/scripts/requirements.txt && \
-                west build -b m5stack_atom_lite ../target"
+                west build -b m5stack_atom_lite/esp32/procpu ../target"
         
