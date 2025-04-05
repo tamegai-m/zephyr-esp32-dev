@@ -30,8 +30,8 @@ jobs:
         run: |
             docker run --rm -v ${{ github.workspace }}/sample:/work -w /work zephyr-esp32-dev:test \
               bash -c "\           
-                west init -l . && \
                 west update && \
+                west zephyr-export && \
                 pip3 install -r zephyr/scripts/requirements.txt && \
                 west build -b esp32"
   
