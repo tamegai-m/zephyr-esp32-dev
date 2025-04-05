@@ -38,4 +38,12 @@ jobs:
                 pip3 install -r zephyr/scripts/requirements.txt && \
                 west build -b m5stack_atom_lite/esp32/procpu ../target \
                   -- -DCONFIG_BOOTLOADER_ESP_IDF=y -DCONFIG_ESP32_USE_UNSUPPORTED_REVISION=y"
-        
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: zephyr-binaries
+          path: |
+            workspace/build/zephyr/zephyr.elf
+            workspace/build/zephyr/zephyr.bin
+            workspace/build/bootloader/bootloader.bin
+            workspace/build/partition_table/partition-table.bin
